@@ -1,21 +1,67 @@
+//указываем пути к нашим модулям относительно директории с точкой входа
 requirejs.config({
     paths: {
-        "rClck" : "modules/disable_rclck",
-        "app" : "app",
-        "socket" : "modules/webSockets",
-        "Actions" : "modules/Actions",
-        "User" : "modules/User",
-        "userList" : "modules/userlist",
-        "Matreshka" : "libs/matreshka.min",
-        "Modal" : "modules/Modal",
-        "fight" : "modules/fight",
-        "jquery" : "libs/jquery",
-        "myCards" : "modules/myCards",
-        "opCards" : "modules/opCards",
-        "mana" : "modules/mana"
+        'jquery': 'scripts/jquery-3.2.1.min',
+        'Menu': 'scripts/menu/Menu',
+        'MenuItem': 'scripts/menu/MenuItem'
     }
 });
 
-require(['app'],function(app){
-    app.menu();
+
+require(['jquery', 'Menu'], function ($, Menu) {
+    var items =
+        [
+            {
+                title: '1',
+                href: '#'
+            },
+            {
+                title: '2',
+                href: '#'
+            },
+            {
+                title: '3',
+                href: '#',
+                items: [
+                    {
+                        title: '3.1',
+                        href: '#'
+                    },
+                    {
+                        title: '3.2',
+                        href: '#'
+                    },
+                    {
+                        title: '3.3',
+                        href: '#',
+                        items: [
+                            {
+                                title: '3.3.1',
+                                href: '#'
+                            },
+                            {
+                                title: '3.3.2',
+                                href: '#',
+                                items: [
+                                    {
+                                        title: '3.3.2.1',
+                                        href: '#'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        title: '3.4',
+                        href: '#'
+                    }
+                ]
+            }
+        ],
+        menu = new Menu(items),
+        $menu = menu.render(),
+        $target = $('.container');
+
+    $target.append($menu);
+
 });
