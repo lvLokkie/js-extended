@@ -2,6 +2,7 @@ define(
     'MenuItem',
     function () {
         'use strict';
+
         /**
          * Элемент меню
          * @param itemTitle {string}
@@ -10,13 +11,28 @@ define(
          * @returns {MenuItem}
          * @constructor
          */
-        function MenuItem(itemTitle, targetHref, menuItems) {
-            return {
-                title: itemTitle,
-                href: targetHref,
-                items: menuItems
-            };
-        }
+        var MenuItem = function MenuItem(itemTitle, targetHref, menuItems) {
+            /**
+             * Название элемента меню
+             * @type {string}
+             */
+            this.title = itemTitle;
+
+            /**
+             * Ссылка, на которую ведет элемент
+             * @type {string}
+             */
+            this.targetHref = targetHref;
+
+            /**
+             * Подпункты меню
+             * @type {MenuItem[]}
+             */
+            this.items = menuItems;
+        };
+
+        return MenuItem;
+
     }
 );
 

@@ -61,10 +61,22 @@ define('Menu', ['jquery', 'MenuItem'],
                 return $menu;
             };
 
+            /**
+             * Вернуть элемент неотсортированного списка
+             * @returns {jQuery}
+             * @private
+             */
             this._getSubMenu = function () {
                 return $('<ul>').addClass('menu__subMenu');
             };
 
+            /**
+             * Вернуть ссылку, завернутую в элемент списка
+             * @param href Целевая ссылка
+             * @param title Название ссылки
+             * @returns {jQuery}
+             * @private
+             */
             this._getItemLink = function (href, title) {
                 return self._getItem(self._getLink(href, title));
             };
@@ -95,7 +107,6 @@ define('Menu', ['jquery', 'MenuItem'],
 
         };
 
-        return menu;
     }
 );
 

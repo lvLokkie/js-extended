@@ -8,56 +8,31 @@ requirejs.config({
 });
 
 
-require(['jquery', 'Menu'], function ($, Menu) {
+require(['jquery', 'Menu', 'MenuItem'], function ($, Menu, MenuItem) {
+
+    //структура меню
     var items =
-        [
-            {
-                title: '1',
-                href: '#'
-            },
-            {
-                title: '2',
-                href: '#'
-            },
-            {
-                title: '3',
-                href: '#',
-                items: [
-                    {
-                        title: '3.1',
-                        href: '#'
-                    },
-                    {
-                        title: '3.2',
-                        href: '#'
-                    },
-                    {
-                        title: '3.3',
-                        href: '#',
-                        items: [
-                            {
-                                title: '3.3.1',
-                                href: '#'
-                            },
-                            {
-                                title: '3.3.2',
-                                href: '#',
-                                items: [
-                                    {
-                                        title: '3.3.2.1',
-                                        href: '#'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        title: '3.4',
-                        href: '#'
-                    }
-                ]
-            }
-        ],
+            [
+                new MenuItem('1', '#'),
+                new MenuItem('2', '#', [
+                    new MenuItem('2.1', '#'),
+                    new MenuItem('2.2', '#', [
+                        new MenuItem('2.2.1', '#')
+                    ])
+                ]),
+                new MenuItem('3', '#', [
+                    new MenuItem('3.1', '#'),
+                    new MenuItem('3.2', '#')
+                ]),
+                new MenuItem('4', '#'),
+                new MenuItem('5', '#', [
+                    new MenuItem('5.1', '#', [
+                        new MenuItem('5.1.1', '#'),
+                        new MenuItem('5.1.2', '#')
+                    ]),
+                    new MenuItem('5.2', '#')
+                ])
+            ],
         menu = new Menu(items),
         $menu = menu.render(),
         $target = $('.container');
