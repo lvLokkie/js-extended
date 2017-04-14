@@ -3,9 +3,9 @@ define('Menu', ['jquery', 'MenuItem'],
         /**
          * Реализация класса меню
          * @param menuItems {MenuItem[]}
-         * @returns {menu} menu
+         * @returns {Menu} menu
          */
-        var menu = function (menuItems) {
+        var Menu = function (menuItems) {
             'use strict';
             var self = this;
 
@@ -73,7 +73,7 @@ define('Menu', ['jquery', 'MenuItem'],
             /**
              * Вернуть ссылку, завернутую в элемент списка
              * @param href Целевая ссылка
-             * @param title Название ссылки
+             * @param title Название элемента меню
              * @returns {jQuery}
              * @private
              */
@@ -106,6 +106,8 @@ define('Menu', ['jquery', 'MenuItem'],
             };
 
         };
+
+        return Menu;
 
     }
 );
