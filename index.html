@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>js-1</title>
-	<link href="sources/scripts/menu/styles/Menu.css" rel="stylesheet">
-</head>
-<body>
-	<div class="container">
+	<head>
+		<meta charset="UTF-8">
+		<title>js-1</title>
+		<link href="sources/scripts/menu/styles/Menu.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="header">
+			<div class="menuContainer">
 
-	</div>
+			</div>
+		</div>
+		<div class="formContainer">
+			<form class="form">
+				<fieldset class="form__content" style="display: flex">
+					<legend>Send ajax</legend>
+					<input type="text" name="username" id="username" value="username">
+					<input type="password" name="password" id="password" value="password">
+					<input type="date" name="birth" id="birth">
+					<input type="email" name="email" id="email" value="some@some.ru">
+					<select name="gender" id="gender">
+						<option value="m" selected>Мужчина</option>
+						<option value="f">Женщина</option>
+					</select>
+					<input type="text" name="credit_card" id="creaditCard" value="5105105105105100">
+					<textarea name="bio" id="bio">Очень крутая биография</textarea>
+					<button id="send" type="button">Отправить</button>
+				</fieldset>
+				<p id="errors">
 
-	<!--ради интереса использую require js, sources/app указывает файл - точку входа в приложение-->
-	<script async data-main="sources/app" src="sources/require.js"></script>
-</body>
+				</p>
+			</form>
+		</div>
+
+		<!--ради интереса использую require js, sources/app указывает файл - точку входа в приложение-->
+		<script async data-main="sources/app" src="sources/require.js"></script>
+	</body>
 </html>
