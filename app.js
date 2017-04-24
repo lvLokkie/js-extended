@@ -17,10 +17,10 @@ require(
     ],
     function ($, Menu, MenuItem, rgx) {
         var items = [
-           new MenuItem('Main', '/js-1/index.html'),
-           new MenuItem('Menu creation lesson', '/js-1/lessons/menu.html'),
-           new MenuItem('Ajax creation lesson', '/js-1/lessons/ajax.html'),
-           new MenuItem('Tabs creation lesson', '/js-1/lessons/tabs.html')
+           new MenuItem('Main', '/js-extended-cource/index.html'),
+           new MenuItem('Menu creation lesson', '/js-extended-cource/lessons/menu.html'),
+           new MenuItem('Ajax creation lesson', '/js-extended-cource/lessons/ajax.html'),
+           new MenuItem('Tabs creation lesson', '/js-extended-cource/lessons/tabs.html')
          ],
             menu = new Menu(items),
             $menu = menu.render(),
