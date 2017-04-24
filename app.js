@@ -20,7 +20,7 @@ require(
            new MenuItem('Main', 'https://lvlokkie.github.io/js-extended-cource/'),
            new MenuItem('Menu creation lesson', 'https://lvlokkie.github.io/js-extended-cource/lessons/menu.html'),
            new MenuItem('Ajax creation lesson', 'https://lvlokkie.github.io/js-extended-cource/lessons/ajax.html'),
-           new MenuItem('Tabs creation lesson', 'https://lvlokkie.github.io/js-extended-cource/tabs.html')
+           new MenuItem('Tabs creation lesson', 'https://lvlokkie.github.io/js-extended-cource/lessons/tabs.html')
          ],
             menu = new Menu(items),
             $menu = menu.render(),
