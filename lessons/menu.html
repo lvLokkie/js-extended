@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-1</title>
+	<link href="../main.css" rel="stylesheet">
+</head>
+<body>
+<div class="menuContainer"></div>
+<div class="menuLesson"></div>
+
+<script data-main="../app" src="../require.js"></script>
+<script>
+	require(['modules/MenuPageLesson'], function (MenuPageLesson) {
+		var lessonResult = new MenuPageLesson();
+        lessonResult.create()
+    });
+</script>
+</body>
+</html>

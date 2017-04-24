@@ -3,7 +3,7 @@ define('Menu', ['jquery', 'MenuItem'],
         /**
          * Реализация класса меню
          * @param menuItems {MenuItem[]}
-         * @returns {Menu} menu
+         * @returns {Menu} Menu
          */
         var Menu = function (menuItems) {
             'use strict';
@@ -19,7 +19,7 @@ define('Menu', ['jquery', 'MenuItem'],
              * Класс контейнера меню
              * @type {string}
              */
-            this.containerClass = 'menu';
+            this.containerClass = 'Menu';
 
             /**
              * Метод формирования элмента меню
@@ -27,7 +27,7 @@ define('Menu', ['jquery', 'MenuItem'],
              */
             this.render = function render() {
                 var $menuContainer = $('<div>').addClass(self.containerClass).attr('id', self.id),
-                    $menu = $('<ul>').addClass('menu');
+                    $menu = $('<ul>').addClass('Menu');
                 $menuContainer.append(self._getMenu($menu, menuItems));
                 return $menuContainer;
             };
@@ -48,12 +48,12 @@ define('Menu', ['jquery', 'MenuItem'],
                                 $subMenu = self._getSubMenu(),
                                 $currentLi = self._getItem($subMenu);
 
-                            $currentLi.prepend(self._getItemLink(item.href, item.title));
+                            $currentLi.prepend(self._getItemLink(item.targetHref, item.title));
                             $currentLi.append(self._getMenu($subMenu, item.items));
                             $menu.append($currentLi);
 
                         } else {
-                            $menu.append(self._getItemLink(item.href, item.title));
+                            $menu.append(self._getItemLink(item.targetHref, item.title));
                         }
                     });
                 }
@@ -99,9 +99,10 @@ define('Menu', ['jquery', 'MenuItem'],
              * @private
              */
             this._getLink = function (href, title) {
-                var $link = $('<a>').addClass('menuLink');
+                var $link = $('<a>');
                 $link.attr('href', href);
                 $link.html(title);
+                $link.addClass('menuLink');
                 return $link;
             };
 
