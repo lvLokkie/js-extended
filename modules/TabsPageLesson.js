@@ -4,21 +4,22 @@ define(
         'jquery'
     ],
 
-    //ajax-запрос. Урок 2.
+    //Табы. Урок 4.
     function ($) {
         'use strict';
 
         var tabs = function () {
 
+            var $selected = $('.tab-link.current');
+
             this.init = function () {
-                $('ul.tabs li').click(function () {
-                    var tabId = $(this).attr('data-tab');
-
-                    $('ul.tabs li').removeClass('current');
-                    $('.tab-content').removeClass('current');
-
-                    $(this).addClass('current');
-                    $('#' + tabId).addClass('current');
+                $('.tabs').on('click', function (event) {
+                    if (!$selected.eq(this)) {
+                        $('.current').removeClass('current');
+                        $selected = this;
+                        $selected.addClass('current');
+                        $('#' + $selected.attr('id')).addClass('current');
+                    }
                 });
             };
 
