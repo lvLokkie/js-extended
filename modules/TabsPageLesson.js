@@ -10,17 +10,16 @@ define(
 
         var tabs = function () {
 
-            var $selected = $('.tab-link.current');
-
             this.init = function () {
                 $('.tabs').on('click', function (event) {
-                    if (!$selected.eq(this)) {
                         $('.current').removeClass('current');
-                        $selected = this;
-                        $selected.addClass('current');
-                        $('#' + $selected.attr('id')).addClass('current');
-                    }
-                });
+
+                        var
+                            $target = $(event.target),
+                            contentId = '#tab-' +  $target.attr('id');
+                        $target.addClass('current');
+                        $(contentId).addClass('current');
+                    });
             };
 
         };
