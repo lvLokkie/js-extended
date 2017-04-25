@@ -10,16 +10,15 @@ define(
 
         var tabs = function () {
 
+            var selectedClassName = 'current';
+
             this.init = function () {
                 $('.tabs').on('click', function (event) {
-                        $('.current').removeClass('current');
-
-                        var
-                            $target = $(event.target),
-                            contentId = '#tab-' +  $target.attr('id');
-                        $target.addClass('current');
-                        $(contentId).addClass('current');
-                    });
+                    var $target = $(event.target);
+                    $('.current').removeClass(selectedClassName);
+                    $target.addClass(selectedClassName);
+                    $($target.attr('tab')).addClass(selectedClassName);
+                });
             };
 
         };
