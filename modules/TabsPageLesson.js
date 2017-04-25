@@ -10,14 +10,19 @@ define(
 
         var tabs = function () {
 
-            var selectedClassName = 'current';
+            var
+                selectedClassName = 'current',
+                selectedIndex;
 
             this.init = function () {
                 $('.tabs').on('click', function (event) {
                     var $target = $(event.target);
-                    $('.current').removeClass(selectedClassName);
-                    $target.addClass(selectedClassName);
-                    $($target.attr('data-tab')).addClass(selectedClassName);
+                    if (selectedIndex !== $target.index() && $target.hasClass('tab-link')) {
+                        $('.current').removeClass(selectedClassName);
+                        $target.addClass(selectedClassName);
+                        $($target.attr('data-tab')).addClass(selectedClassName);
+                        selectedIndex = $target.index();
+                    }
                 });
             };
 
