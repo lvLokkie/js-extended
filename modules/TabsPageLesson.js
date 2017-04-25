@@ -17,7 +17,7 @@ define(
                     var $target = $(event.target);
                     $('.current').removeClass(selectedClassName);
                     $target.addClass(selectedClassName);
-                    $($target.attr('tab')).addClass(selectedClassName);
+                    $($target.attr('data-tab')).addClass(selectedClassName);
                 });
             };
 
