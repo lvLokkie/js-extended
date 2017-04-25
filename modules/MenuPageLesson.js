@@ -38,8 +38,10 @@ define(
 
 
             this.create = function () {
-                var $menu = menu.render(),
+                var
+                    $menu = menu.render(),
                     $menuContainer = $('.menuLesson');
+
                 $menuContainer.append($menu);
             };
 
