@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Ajax</title>
+   </head>
+   <body>
+      <div class="formContainer">
+         <form class="form">
+            <fieldset class="form__content" style="display: flex">
+               <legend>Send ajax</legend>
+               <input type="text" name="username" id="username" value="username">
+               <input type="password" name="password" id="password" value="password">
+               <input type="date" name="birth" id="birth">
+               <input type="email" name="email" id="email" value="some@some.ru">
+               <select name="gender" id="gender">
+                  <option value="m" selected>Мужчина</option>
+                  <option value="f">Женщина</option>
+               </select>
+               <input type="text" name="credit_card" id="creaditCard" value="5105105105105100">
+               <textarea name="bio" id="bio">Очень крутая биография</textarea>
+               <button id="send" type="button">Отправить</button>
+            </fieldset>
+            <div id="errors">
+
+            </div>
+         </form>
+      </div>
+
+      <script  src="scripts/ajaxLesson.bundle.js"></script>
+
+   </body>
+</html>

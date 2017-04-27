@@ -77,9 +77,15 @@
     "safeContextKeyword": "self",
     "validateLineBreaks": "CRLF",
     "validateQuoteMarks": { "mark": "'", "escape": true, "ignoreJSX": true },
-    "validateIndentation": 4,
+    "validateIndentation": 3,
     "maximumLineLength": {
         "value": 100,
         "allExcept": ["urlComments"]
-    }
+    },
+    "maxErrors" : 1000,
+
+  "excludeFiles": [
+    "./webpack.config.js",
+    "./scripts/*"
+  ]
 }
