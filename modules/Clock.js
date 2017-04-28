@@ -33,6 +33,10 @@ function Clock($container) {
             hr = now.getHours(),
             ctx = self._$canvas[0].getContext('2d');
 
+         if (ctx === void 0) {
+            throw new Error('Браузер не поддерживает работу с canvas');
+         }
+
          ctx.save();
 
          ctx.clearRect(0, 0, 150, 150);
