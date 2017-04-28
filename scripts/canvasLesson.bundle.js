@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,10 +261,15 @@ module.exports = __webpack_amd_options__;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {var Clock = __webpack_require__(8);
+var Voter = __webpack_require__(10);
 
 (function () {
 
-   var clock = new Clock($('#clockContainer'));
+   var
+      clock = new Clock($('#clockContainer')),
+      voter = new Voter({ element: $('#voterContainer') });
+
+   voter.setVote(20);
 
 })();
 
@@ -401,8 +406,63 @@ function Clock($container) {
 
 /***/ }),
 /* 9 */,
-/* 10 */,
-/* 11 */
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {/**
+ * @typedef {Object} VoterOptions
+ * @property {$} element
+ */
+
+
+/**
+ * Создание голосовалки
+ * @param voterOptions {VoterOptions}
+ * @constructor
+ */
+function Voter(voterOptions) {
+   if (voterOptions.element === void 0) {
+      throw new Error('Can`t find voter container at options.element!');
+   }
+
+   var
+      self = this,
+      _value = 0,
+      _$container = voterOptions.element,
+      _$up = $('<button>').attr('id', 'vote-up').html('+'),
+      _$numbers = $('<span>').attr('id', 'vote-value').html(_value),
+      _$down = $('<button>').attr('id', 'vote-down').html('-');
+
+   this._setValue = function (value) {
+      _value = value;
+      _$numbers.html(_value);
+   };
+
+   this._init = function () {
+      _$up.on('click', function () {
+         self._setValue(_value + 1);
+      });
+
+      _$down.on('click', function () {
+         self._setValue(_value - 1);
+      });
+
+      _$container.append([_$up, _$numbers, _$down]);
+   };
+
+   this.setVote = function (value) {
+      self._setValue(value);
+   };
+
+   this._init();
+}
+
+module.exports = Voter;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
